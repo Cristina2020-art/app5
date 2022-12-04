@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular -aplicatie</title>
+</head>
+<body>
+<h1>Aplicatie de formular</h1>
+<p>După trimiterea formularului, obiectul creat va fi conectat la consolă.</p>
+<form>
+<div>
+<label for="first-name">First name</label>
+<input type="text" name="first-name">
+</div>
+<div><br>
+<label for="last-name">Last name</label>
+<input type="text" name="last-name">
+</div>
+<div><br>
+<label for="JS-difficult">How difficult is JavaScript?</label>
+<select name="JS-difficulty">
+<option>Easy</option>
+<option>Somewhere between</option>
+<option>Hard</option>
+</select>
+</div><br>
+<button type="submit">Submit</button>
+</form>
+<script>
+showResult();
+function showResult() {
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+e.preventDefault(); // Prevent HTML refresh
+const formData = new FormData(form); // Converts to array of arrays
+const obj = Object.fromEntries(formData); // Array of arrays to object
+console.log(obj);
+});
+}
+</script>
+  
+</body>
+</html>
